@@ -1,16 +1,117 @@
-# React + Vite
+# Sweet Shop Management System 🍬
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Sweet Shop Management System is a full-stack web application designed to manage sweets inventory and purchases. Users can register, log in, view available sweets, and purchase them. Admin users can manage sweets by adding, updating, deleting, and restocking inventory.
 
-Currently, two official plugins are available:
+This project demonstrates real-world full-stack development including authentication, authorization, REST APIs, database integration, and frontend–backend communication.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
+- React (Vite)
+- Axios
+- HTML, CSS
 
-## Expanding the ESLint configuration
+### Backend
+- Node.js
+- Express.js
+- MongoDB (Mongoose)
+- JWT Authentication
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Tools
+- Git & GitHub
+- Nodemon
+- Postman / Thunder Client
+
+---
+
+## ✨ Features
+
+### User Features
+- User registration and login
+- JWT-based authentication
+- View sweets list
+- Purchase sweets
+- Purchase disabled when stock is zero
+
+### Admin Features
+- Add new sweets
+- Update sweet details
+- Delete sweets
+- Restock sweets
+- Role-based access control
+
+---
+
+## 📂 Project Structure
+
+### Backend
+sweet-shop-backend/
+├── config/
+├── middleware/
+├── models/
+├── routes/
+├── server.js
+└── .env
+
+### Frontend
+sweet-shop-frontend/
+├── src/
+│ ├── api/
+│ ├── pages/
+│ ├── components/
+│ ├── App.jsx
+│ └── main.jsx
+
+
+---
+
+## ⚙️ Setup Instructions (Local)
+
+### 🔹 Prerequisites
+- Node.js (v16 or above)
+- MongoDB (local or MongoDB Atlas)
+- Git
+
+---
+
+### 🔹 Backend Setup
+
+```bash
+cd sweet-shop-backend
+npm install
+npx nodemon server.js
+
+Backend runs on:
+http://localhost:5000
+
+Frontend Setup
+cd sweet-shop-frontend
+npm install
+npm run dev
+
+Frontend runs on:
+http://localhost:5173
+
+Authentication Flow
+User registers with email and password
+Password is hashed and stored in MongoDB
+User logs in
+Backend generates JWT token
+Token stored in browser (localStorage)
+Token sent in Authorization header
+Backend verifies token for protected APIs
+
+API Endpoints
+Authentication
+POST /api/auth/register
+POST /api/auth/login
+Sweets
+GET /api/sweets
+POST /api/sweets (Admin)
+PUT /api/sweets/:id (Admin)
+DELETE /api/sweets/:id (Admin)
+Inventory
+POST /api/sweets/:id/purchase
+POST /api/sweets/:id/restock (Admin)
